@@ -1,0 +1,17 @@
+[user]
+  email = camille.bordignon@gmail.com
+  name = Camille Bordignon
+[diff]
+  tool = meld
+[push]
+  default = current
+[log]
+  decorate = true
+  graph = true
+[status]
+  submoduleSummary = true
+[core]
+  editor = vim
+[alias]
+  st = status
+  co = checkout
