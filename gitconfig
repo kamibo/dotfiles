@@ -15,3 +15,5 @@
 [alias]
   st = status
   co = checkout
+[merge]
+  renamelimit = 8935
