@@ -29,7 +29,6 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
@@ -41,14 +40,12 @@ Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-" Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-Plug 'lyuts/vim-rtags'
 Plug 'stfl/meson.vim'
 Plug 'vimscript/plantuml'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'neoclide/coc.nvim'
 
 let g:make = 'gmake'
 if system('uname -o') =~ '^GNU/'
@@ -309,8 +306,8 @@ noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gs :Git<CR>
+noremap <Leader>gb :Git blame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
@@ -340,6 +337,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
 let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
 let g:ctrlp_use_caching = 1
+let g:ctrlp_max_files = 100000
 
 " The Silver Searcher
 if executable('ag')
@@ -359,9 +357,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
-
-" ALE
-let g:ale_linters = {'cpp': ['clangcheck']}
 
 " syntastic
 "let g:syntastic_always_populate_loc_list=1
@@ -483,3 +478,10 @@ endif
 nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
+" GoTo code navigation.
+nmap <silent> sd <Plug>(coc-definition)
+nmap <silent> sy <Plug>(coc-type-definition)
+nmap <silent> si <Plug>(coc-implementation)
+nmap <silent> sr <Plug>(coc-references)
+
+au BufRead,BufNewFile *.ezi set filetype=ezi
