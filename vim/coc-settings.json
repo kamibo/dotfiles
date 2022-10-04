@@ -1,0 +1,60 @@
+{
+"languageserver": {
+//  "clangd": {
+//      "command": "clangd",
+//      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+//      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+//    }
+},
+"rust-client": {
+  "disableRustup": true
+},
+"cSpell.enabledLanguageIds": [
+  "asciidoc",
+  "c",
+  "cpp",
+  "csharp",
+  "css",
+  "english",
+  "git-commit",
+  "go",
+  "handlebars",
+  "haskell",
+  "html",
+  "jade",
+  "java",
+  "javascript",
+  "javascriptreact",
+  "json",
+  "jsonc",
+  "latex",
+  "less",
+  "markdown",
+  "php",
+  "plaintext",
+  "pug",
+  "python",
+  "restructuredtext",
+  "rust",
+  "scala",
+  "scss",
+  "text",
+  "typescript",
+  "typescriptreact",
+  "vim",
+  "yaml",
+  "yml"
+],
+"cSpell.words": [
+  "wago",
+  "modbus"
+
+],
+"python.linting.enabled": true,
+"python.linting.flake8Enabled": true,
+"cSpell.userWords": [
+  "pugi",
+  "traitement",
+  "trts"
+]
+}
